@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Pagina de Bienvenida</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- BootStrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<body>
+    
+ <nav class="navbar navbar-expand-lg" style="background-color: #DA5726">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html" style="color: snow">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-3 mb-lg-0">
+
+      </ul>
+        
+         <div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+                    <li sec:authorize="isAuthenticated()"><a href="/miListaCompra" style="color: snow"> Mi lista de la compra</a></li>
+				</ul>
+			</div>
+        
+         <div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li sec:authorize="isAuthenticated()">| Usuario: <span sec:authentication="name"></span>  <a th:href="@{/logout}" style="color: snow"> Cerrar sesión</a></li>
+				</ul>
+			</div>
+    </div>
+  </div>
+</nav>
+    
+   <div class="container my-5">
+       <div class="row">
+
+        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            
+            <h2 class="mb-5">Realizar lista de la compra</h2>
+<!--         th:action especifica la url a la que serán enviados los datos del formulario. 
+				Seran recibidos por la peticion postMapping en el controlador -->
+<!--         th:object especifica el objeto donde se vincularan los datos del formulario (usuario) -->
+<!--         th:field mapea los campos individuales del formulario con las propiedades correspondientes del Objeto Java, usuario en este caso, a traves de sus setters
+			 Accedemos a la propiedad del objeto seleccionado con th:object con *{nombre propiedad} (*{..} Selection expressions) 
+			 https://www.thymeleaf.org/doc/articles/standarddialect5minutes.html 
+				 -->				
+<!-- 		 Acerca del formulario. more info: https://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html#creating-a-form -->
+            
+            
+            
+            <form action="#" th:action="@{/addReceta}" th:object="${receta}" method="post">                      
+                <div class="form-row">
+                    <div class="form-group col-md-9">
+<!--                    Esta <label> esta asociada con el <input> mediante el for="name" y el id="name" -->
+                        <label for="name" class="col-form-label">Lunes</label>
+                        <input  class="form-control" id="number" th:name="idrec"  required placeholder="Introduce ID de la receta">
+                    </div>
+                    <div class="form-group col-md-9">
+                        <label for="number" class="col-form-label">Martes</label>
+                        <input  class="form-control" id="numer" th:name="idrec2" required placeholder="Introduce ID de la receta">
+                    </div>
+                    
+                    <div class="form-group col-md-9">
+                        <label for="number" class="col-form-label">Miercoles</label>
+                        <input  class="form-control" id="numer" th:name="idrec3" required placeholder="Introduce ID de la receta">
+                    </div>
+                    
+                    <div class="form-group col-md-9">
+                        <label for="number" class="col-form-label">Jueves</label>
+                        <input  class="form-control" id="numer" th:name="idrec4" required placeholder="Introduce ID de la receta">
+                    </div>
+                    
+                    <div class="form-group col-md-9">
+                        <label for="number" class="col-form-label">Viernes</label>
+                        <input class="form-control" id="numer" th:name="idrec5" required placeholder="Introduce ID de la receta">
+                    </div>
+                    
+                    <div class="form-group col-md-9">
+                        <label for="number" class="col-form-label">Sábado</label>
+                        <input  class="form-control" id="numer" th:name="idrec6" required placeholder="Introduce ID de la receta">
+                    </div>
+                    <div class="form-group col-md-9">
+                        <label for="number" class="col-form-label">Domingo</label>
+                        <input class="form-control" id="numer" th:name="idrec7" required placeholder="Introduce ID de la receta">
+                    </div>
+                    
+                </div>
+             
+                  
+             <input type="submit" class="btn  mt-5" style="background-color: #DA5726; color: snow" role="button" value="Obtener lista de la compra">
+         
+                
+            </form>  
+          
+        </div> <!-- grid--> 
+       
+        <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
+            
+            <h2 class="mb-5">Información recetas</h2>
+            
+            <table class="table table-striped">
+            <thead>
+                <tr>
+                <th>#Id</th>
+                <th>Nombre Receta</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                     <td>Pollo al horno con patatas y cebolla</td>
+                    
+                    </tr>
+                    
+                      <tr>
+                    <td>2</td>
+                     <td>Espaguetis Carbonara Tradicionales</td>
+                    
+                    </tr>
+                    
+                      <tr>
+                    <td>3</td>
+                     <td>Lentejas de verduras</td>
+                    
+                    </tr>
+                    
+                     <tr>
+                    <td>4</td>
+                     <td>Tortilla rellena de jamón y queso</td>
+                    
+                    </tr>
+                    
+                     <tr>
+                    <td>5</td>
+                     <td>Tarta de queso</td>
+                    
+                    </tr>
+                    
+                     <tr>
+                    <td>6</td>
+                     <td>Gazpacho tradicional</td>
+                    
+                    </tr>
+                    
+                     <tr>
+                    <td>7</td>
+                     <td>Arroz a la cubana</td>
+                    
+                    </tr>
+                    
+                
+                </tbody>
+            
+            </table>
+        </div>
+        
+    </div>
+    
+
+    </div>
+</body>
+</html>

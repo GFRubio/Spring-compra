@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Pagina de Bienvenida</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- BootStrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<body>
+    
+ <nav class="navbar navbar-expand-lg" style="background-color: #DA5726">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html" style="color: snow">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-3 mb-lg-0">
+           <div sec:authorize access="!isAuthenticated()">
+        <li class="nav-item">
+          <a class="nav-link ms-5" href="/login" style="color: snow">Iniciar sesión</a>
+        </li>
+               </div>
+          <li class="nav-item">
+          <a class="nav-link ms-5" href="/registrarse" style="color: snow">Registrarse</a>
+        </li>
+      </ul>
+        
+       
+    </div>
+  </div>
+</nav>
+    
+    <div class="container mx-auto" style="width: 600px">
+        <section id="header">
+        <!-- LOGO -->
+            <h1><a href="index.html"><img src="../imagenes/Receta&compra.png"/></a></h1>
+            <h1 class="mb-3 fw-semibold" style="color: #DA5726">¡Receta y Compra es la aplicación web que te falicitará tu cesta de la compra!</h1>
+            <p class="lead mb-4">Nuestra aplicación te ofrece elegir entre varias recetas para planificar las comidas en tu casa y como resultado nos dará una 
+            lista de la compra, con todos los productos que necesitas para facilitar la vida a aquellas personas que se ocupan de esta tarea que puede volverse complicada</p>
+            
+            
+          
+            
+            
+            <nav id="nav">
+                <ul>
+
+                    <div class="d-grid">
+                     <a class="btn  mb-5" style="background-color: #DA5726; color: snow" href="/addReceta" role="button">¡Realiza la lista de tu compra!</a>
+                    </div>
+                   
+                    
+                </ul>
+                
+                 </nav>
+                </section>
+            
+
+          
+            <section id="recetas">
+                
+                 <h1 class="fw-semibold m-5" style="color: #DA5726">¡Nuestras Recetas!</h1>
+                
+                <div class="row mt-2">
+                <div class="col-sm-6">
+            
+                <div class="card" style="width: 18rem;">
+                <img src="imagenes/pollohorno.jpg" class="card-img-top">
+                <div class="card-body">
+                <h5 class="card-title">Pollo asado al horno con patatas y cebolla</h5>
+                <p class="card-text"></p>
+               </div>
+               <ul class="list-group list-group-flush">
+              <li class="list-group-item">Pollo entero 1200g (aproximadamente)</li>
+                  <li class="list-group-item">Patatas 400g</li>
+                <li class="list-group-item">Cebollas 200g</li>
+                   
+               </ul>
+              </div>
+                 </div>
+                    <div class="col-sm-6">
+                 <div class="card" style="width: 18rem;">
+                <img src="imagenes/Spaguetti.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Espaguetis Carbonara Tradicionales</h5>
+                <p class="card-text"></p>
+               </div>
+               <ul class="list-group list-group-flush">
+              <li class="list-group-item">Espagueti 400g</li>
+                  <li class="list-group-item">Huevos</li>
+                <li class="list-group-item">Queso curado 150g</li>
+                    <li class="list-group-item">Bacon 120g</li>
+               </ul>
+              </div>
+                    
+                    </div>
+                </div>
+                
+                  <div class="row mt-2">
+                <div class="col-sm-6">
+            
+                <div class="card" style="width: 18rem;">
+                <img src="imagenes/lentejas.png" class="card-img-top">
+                <div class="card-body">
+                <h5 class="card-title">Lentejas de verduras</h5>
+                <p class="card-text"></p>
+               </div>
+               <ul class="list-group list-group-flush">
+              <li class="list-group-item">Lentejas 400g</li>
+                  <li class="list-group-item">Cebolla 40g</li>
+                <li class="list-group-item">Zanahoria 200g</li>
+                    <li class="list-group-item">Patata 300g</li>
+                    <li class="list-group-item">Ajo 20g</li>
+                   
+               </ul>
+              </div>
+                 </div>
+                    <div class="col-sm-6">
+                 <div class="card" style="width: 18rem;">
+                <img src="imagenes/tortilla.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Tortilla rellena de jamón y queso</h5>
+                <p class="card-text"></p>
+               </div>
+               <ul class="list-group list-group-flush">
+              <li class="list-group-item">Patata 400g</li>
+                  <li class="list-group-item">Huevos</li>
+                <li class="list-group-item">Jamon York 100g</li>
+                    <li class="list-group-item">Queso 100g</li>
+                    <li class="list-group-item">Cebolla 50g</li>
+               </ul>
+              </div>
+                    
+                    </div>
+                </div>
+    
+            
+        
+        </section>  
+        
+        
+    </div>
+    
+</body>
+</html>

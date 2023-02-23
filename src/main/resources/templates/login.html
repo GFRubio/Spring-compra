@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>    
+    <title>Identificarse</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+	<script src="https://kit.fontawesome.com/3f9019a054.js" crossorigin="anonymous"></script>
+
+</head>
+    
+     <nav class="navbar navbar-expand-lg" style="background-color: #DA5726">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html" style="color: snow">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-3 mb-lg-0">
+
+      </ul>
+    </div>
+  </div>
+</nav>
+    
+<body>
+    
+    
+    
+    <div class="container my-5">
+    <div class="row">
+        
+        <div class="col-md-3"></div> 
+        <div class="col-md-6">
+            <h2 class="mb-5">Iniciar Sesión</h2>
+        </div>
+    </div>
+   <div class="container">
+		<div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-9">
+
+
+				<form th:action="@{/login}" method="post">
+
+					<!-- error message -->
+					<div th:if="${param.error}">
+						<div class="alert alert-danger">Contraseña o usuario invalido</div>
+					</div>
+
+					<!-- logout message -->
+					<div th:if="${param.logout}">
+						<div class="alert alert-info">Sesión finalizada</div>
+					</div>
+
+					<div class="form-group">
+						<label for="username"> Email </label> : <input type="text"
+							class="form-control" id="username" name="username"
+							placeholder="Introducir email" autofocus="autofocus">
+					</div>
+
+					<div class="form-group">
+						<label for="password">Contraseña</label>: <input type="password"
+							id="password" name="password" class="form-control"
+							placeholder="Introducir contraseña" />
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-6 mt-5">
+								<input type="submit" name="login-submit" id="login-submit"
+									class="form-control btn btn-primary center" style="background-color:#DA5726 " value="Iniciar sesión" />
+							</div>
+						</div>
+					</div>
+				</form>
+				<div class="form-group">
+					<span>¿Nuevo usuario? <a href="/" th:href="@{/registrarse}" style="font-size:20px; color: #DA5726">Registrate aquí</a></span>
+				</div>
+			</div>
+		</div>
+    </div>
+ </div>
+</body>
+</html>
+      
